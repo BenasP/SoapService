@@ -4,7 +4,7 @@ using System.ServiceModel;
 namespace SoapService
 {
     [ServiceContract]
-    public interface IService1
+    public interface IService
     {
 
         [OperationContract]
