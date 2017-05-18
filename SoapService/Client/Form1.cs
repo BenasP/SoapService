@@ -20,8 +20,8 @@ namespace Client
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var a = (Models.Student)ModelBindingSource.DataSource;
-            //var student = (Student)ModelBindingSource.DataSource;
+            var student = (Student)ModelBindingSource.DataSource;
+
         }
     }
 }

@@ -1,18 +1,36 @@
-﻿namespace SoapService
+﻿using System.Collections.Generic;
+using System.Linq;
+using Models;
+
+namespace SoapService
 {
     public class Service : IService
     {
-        private static int clicks = 0;
-        public string GetData(int value)
+        private static readonly List<Student> students = new List<Student>();
+
+        public Student GetStudent(string searchParam)
         {
-            return clicks.ToString();
+            return students.FirstOrDefault(x => x.FirstName.Contains(searchParam)
+                                                || x.LastName.Contains(searchParam)
+                                                || x.Id.Contains(searchParam));
         }
 
-        public bool SendKeyPress()
+        public List<Student> GetStudents()
         {
-            clicks++;
-            return true;
+            return students;
         }
 
+        public void AddUpdateStudent(Student student)
+        {
+            var indexOfStudent = students.FindIndex(x => x.Id == student.Id);
+
+            if (indexOfStudent != -1)
+            {
+                students[indexOfStudent] = student;
+                return;
+            }
+
+            students.Add(student);
+        }
     }
 }

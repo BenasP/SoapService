@@ -1,17 +1,19 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
+using Models;
 
 namespace SoapService
 {
     [ServiceContract]
     public interface IService
     {
+        [OperationContract]
+        Student GetStudent(string searchParam);
 
         [OperationContract]
-        string GetData(int value);
+        List<Student> GetStudents();
 
         [OperationContract]
-        bool SendKeyPress();
-
+        void AddUpdateStudent(Student student);
     }
 }
