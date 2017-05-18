@@ -1,25 +1,18 @@
-﻿using System;
-
-namespace SoapService
+﻿namespace SoapService
 {
     public class Service : IService
     {
+        private static int clicks = 0;
         public string GetData(int value)
         {
-            return $"You entered: {value}";
+            return clicks.ToString();
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public bool SendKeyPress()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            clicks++;
+            return true;
         }
+
     }
 }
