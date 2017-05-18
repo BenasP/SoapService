@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.ModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
@@ -40,20 +39,17 @@
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.ModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ModelBindingSource, "FirstName", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ModelBindingSource, "FirstName", true));
             this.FirstNameTextBox.Location = new System.Drawing.Point(98, 12);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(174, 20);
             this.FirstNameTextBox.TabIndex = 0;
-            // 
-            // ModelBindingSource
-            // 
-            this.ModelBindingSource.DataSource = typeof(Models.Student);
             // 
             // FirstNameLabel
             // 
@@ -123,6 +119,7 @@
             this.SaveButton.TabIndex = 8;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // CancelButton
             // 
@@ -133,6 +130,10 @@
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // ModelBindingSource
+            // 
+            this.ModelBindingSource.DataSource = typeof(Models.Student);
             // 
             // Form1
             // 
