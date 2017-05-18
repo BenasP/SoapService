@@ -1,4 +1,6 @@
-﻿namespace Client
+﻿using SoapService;
+
+namespace Client
 {
     partial class Form1
     {
@@ -133,7 +135,7 @@
             // 
             // ModelBindingSource
             // 
-            this.ModelBindingSource.DataSource = typeof(Models.Student);
+            this.ModelBindingSource.DataSource = typeof(Student);
             // 
             // Form1
             // 

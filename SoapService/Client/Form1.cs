@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using Models;
+using Client.ServiceReference;
+using SoapService;
 
 namespace Client
 {
@@ -21,7 +21,8 @@ namespace Client
         private void SaveButton_Click(object sender, EventArgs e)
         {
             var student = (Student)ModelBindingSource.DataSource;
-
+            var client = new ServiceClient();
+            client.AddUpdateStudent(student);
         }
     }
 }
