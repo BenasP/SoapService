@@ -23,6 +23,19 @@ namespace Client
             var student = (Student)ModelBindingSource.DataSource;
             var client = new ServiceClient();
             client.AddUpdateStudent(student);
+
+            GridBindingSource.DataSource = client.GetStudents();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var client = new ServiceClient();
+            if (string.IsNullOrEmpty(SearchTextBox.Text))
+            {
+                GridBindingSource.DataSource = client.GetStudents();
+                return;
+            }
+            GridBindingSource.DataSource = client.GetStudent(SearchTextBox.Text);
         }
     }
 }
